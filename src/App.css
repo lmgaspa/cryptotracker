@@ -1,146 +1,112 @@
 .container {
   display: flex;
   justify-content: center;
-  font-size: 26px;
+  font-size: 24px;
   color: rgb(47, 1, 61);
 }
 
 .agrupado {
   display: flex;
   width: 100%;
-  font-size: 10px;
+  font-size: 16px;
   color: rgb(47, 1, 61);
+  flex-direction: column;
 }
 
 .containerleft {
-  width: 35%;
-  padding-left: 200px;
-}
-
-.containerright {
-  display: flex;
+  padding-left: 330px;
+  padding-right: 0px;
   width: auto;
-  justify-content: center;
-  align-items: center;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
-th{
+th {
   border: 1px solid #c5eef0;
   border-left: none;
   border-right: none;
   border-bottom: none;
 }
 
-td{
-  border: 1px solid #c5eef0;;
+td {
+  border: 1px solid #c5eef0;
+  ;
   border-left: none;
   border-right: none;
   border-bottom: none;
+  width: 600px;
+}
+
+.containerright {
+  display: none;
 }
 
 .box {
-  margin-Left: 70px;
-  width: 400px;
   background: linear-gradient(to left, #ffb1be, #9442ff);
   display: flex;
   justify-content: center;
-  text-align: center;
   align-items: center;
+  text-align: center;
   font-size: 20px;
   color: rgb(47, 1, 61);
-  border-radius: 30px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin-top: 20px;
+  width: 85%;
+  height: 50px;
+  padding-top: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-@media only screen and (min-width: 1025px) and (max-width: 1600px) {
+.title {
+  display: inline-block;
+  text-Align: left;
+  margin-Left: 5px;
+  vertical-align: middle;
+}
+
+.subtitle {
+  display: inline-block;
+  text-Align: left;
+  margin-Left: 5px;
+  vertical-align: middle;
+  color: gray;
+  font-size: 16px;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1640px) {
   .agrupado {
     flex-direction: column;
   }
-  
+
   .containerleft {
-    width: auto;
-    padding-left: 40px;
-    padding-right: 40px;
-   
-  }
-
-  td {
-    width: 600px;
-  }
-
-  .containerright {
-    display: none;
-  }
-
-  .box {
-    margin: auto;
-    top: 0; left: 0; bottom: 0; right: 0;
-    margin-top: 20px;
     width: 90%;
-    height: 50px;
-    text-align: center;
-    padding-top: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .agrupado {
-    flex-direction: column;
-  }
-  
-  .containerleft {
-    width: auto;
-    padding-left: 40px;
-    padding-right: 40px;
-   
-  }
-
-  td {
-    width: 600px;
-  }
-
-  .containerright {
-    display: none;
-  }
-
-  .box {
-    margin: auto;
-    top: 0; left: 0; bottom: 0; right: 0;
-    margin-top: 20px;
-    width: 90%;
-    height: 50px;
-    text-align: center;
-    padding-top: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-}
-
-
-@media only screen and (max-width: 767px) {
-  .agrupado {
-    flex-direction: column;
-  }
-  
-  .containerleft {
-    width: auto;
     padding-left: 10px;
     padding-right: 10px;
-   
+  }
+
+  .container h1 {
+    font-size: 24px;
+  }
+
+  .containerleft h1 {
+    font-size: 16px;
   }
 
   td {
     width: 600px;
   }
 
-  .containerright {
-    display: none;
-  }
-
   .box {
     margin: auto;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     margin-top: 20px;
     width: 90%;
     height: 50px;
@@ -148,5 +114,53 @@ td{
     padding-top: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
+  }
+
+  .subtitle {
+    display: none;
+  }
 }
+
+
+@media only screen and (max-width: 480px) {
+  .agrupado {
+    flex-direction: column;
+  }
+
+  .containerleft {
+    width: 90%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .container h1 {
+    font-size: 22px;
+  }
+
+  .containerleft h1 {
+    font-size: 14px;
+  }
+
+  td {
+    width: 600px;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .box {
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-top: 20px;
+    width: 90%;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
 }

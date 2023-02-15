@@ -56,8 +56,8 @@ function App() {
             <tr>
               <td style={{ width: '30%', verticalAlign: 'middle' }}>
                 <img src={btc} alt="BTC" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '10px', verticalAlign: 'middle' }}>BITCOIN</h1>
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '5px', verticalAlign: 'middle', color: 'gray', fontSize: 15 }}>BTC</h1>
+                <h1 className='title'>BITCOIN</h1>
+                <h1 className='subtitle'>BTC</h1>
               </td>
               <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.btcPrice}</h1></td>
               <td>
@@ -69,8 +69,8 @@ function App() {
             <tr>
               <td style={{ width: '30%', verticalAlign: 'middle' }}>
                 <img src={eth} alt="ETH" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '10px', verticalAlign: 'middle' }}>ETHEREUM</h1>
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '5px', verticalAlign: 'middle', color: 'gray', fontSize: 15 }}>ETH</h1>
+                <h1 className='title'>ETHEREUM</h1>
+                <h1 className='subtitle'>ETH</h1>
               </td>
               <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.ethPrice}</h1></td>
               <td>
@@ -82,8 +82,8 @@ function App() {
             <tr>
               <td style={{ width: '30%', verticalAlign: 'middle' }}>
                 <img src={bnb} alt="BNB" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '10px', verticalAlign: 'middle' }}>BNB</h1>
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '5px', verticalAlign: 'middle', color: 'gray', fontSize: 15 }}>BNB</h1>
+                <h1 className='title'>BNB</h1>
+                <h1 className='subtitle'>BNB</h1>
               </td>
               <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.bnbPrice}</h1></td>
               <td>
@@ -95,8 +95,8 @@ function App() {
             <tr>
               <td style={{ width: '30%', verticalAlign: 'middle' }}>
                 <img src={ada} alt="ADA" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '10px', verticalAlign: 'middle' }}>CARDANO</h1>
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '5px', verticalAlign: 'middle', color: 'gray', fontSize: 15 }}>ADA</h1>
+                <h1 className='title'>CARDANO</h1>
+                <h1 className='subtitle'>ADA</h1>
               </td>
               <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.adaPrice}</h1></td>
               <td>
@@ -108,8 +108,8 @@ function App() {
             <tr>
               <td style={{ width: '30%', verticalAlign: 'middle' }}>
                 <img src={xrp} alt="XRP" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '10px', verticalAlign: 'middle' }}>XRP</h1>
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '5px', verticalAlign: 'middle', color: 'gray', fontSize: 15 }}>XRP</h1>
+                <h1 className='title'>XRP</h1>
+                <h1 className='subtitle'>XRP</h1>
               </td>
               <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.xrpPrice}</h1></td>
               <td>
@@ -121,8 +121,8 @@ function App() {
             <tr>
               <td style={{ width: '30%', verticalAlign: 'middle' }}>
                 <img src={ltc} alt="LTC" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '10px', verticalAlign: 'middle' }}>LITECOIN</h1>
-                <h1 style={{ display: 'inline-block', textAlign: 'left', marginLeft: '5px', verticalAlign: 'middle', color: 'gray', fontSize: 15 }}>LTC</h1>
+                <h1 className='title'>LITECOIN</h1>
+                <h1 className='subtitle'>LTC</h1>
               </td>
               <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.ltcPrice}</h1></td>
               <td>
@@ -137,7 +137,7 @@ function App() {
         <div className='containerright'>
           <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', visibility: isTextVisible ? 'visible' : 'hidden' }}>
             {currentCoinPrice !== 0 &&
-            <><img style={{ width: 150 }} src={coinImages[currentImageIndex]} alt={currentCoin} /><h1 style={{ marginTop: '1rem' }}>
+              <><img style={{ width: 150 }} src={coinImages[currentImageIndex]} alt={currentCoin} /><h1 style={{ marginTop: '1rem' }}>
                 {currentCoin} $ {currentCoinPrice}
               </h1></>
             }
@@ -147,7 +147,8 @@ function App() {
           {currentCoinPrice !== 0 &&
             <h1 style={{ marginTop: '1rem', visibility: isTextVisible ? 'visible' : 'hidden' }}>
               {currentCoin} $ {currentCoinPrice}
-            </h1>}
+            </h1>
+          }
         </div>
       </div>
     </section>
