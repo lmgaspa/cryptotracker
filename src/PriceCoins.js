@@ -15,26 +15,34 @@ export function CoinsPriceProvider({ children }) {
   const [adaPreviousPrice, setAdaPreviousPrice] = useState(0);
   const [ltcPrice, setLtcPrice] = useState(0);
   const [ltcPreviousPrice, setLtcPreviousPrice] = useState(0);
+  const [dogePrice, setDogePrice] = useState(0);
+  const [dogePreviousPrice, setDogePreviousPrice] = useState(0);
+  const [dotPrice, setDotPrice] = useState(0);
+  const [dotPreviousPrice, setDotPreviousPrice] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(async () => {
   
-      const [btcResponse, ethResponse, bnbResponse, xrpResponse, adaResponse, ltcResponse] = await Promise.all([
+      const [btcResponse, ethResponse, bnbResponse, xrpResponse, adaResponse, ltcResponse, dogeResponse, dotResponse] = await Promise.all([
         fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT'),
         fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT'),
         fetch('https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT'),
         fetch('https://api.binance.com/api/v3/ticker/price?symbol=XRPUSDT'),
         fetch('https://api.binance.com/api/v3/ticker/price?symbol=ADAUSDT'),
-        fetch('https://api.binance.com/api/v3/ticker/price?symbol=LTCUSDT')
+        fetch('https://api.binance.com/api/v3/ticker/price?symbol=LTCUSDT'),
+        fetch('https://api.binance.com/api/v3/ticker/price?symbol=DOGEUSDT'),
+        fetch('https://api.binance.com/api/v3/ticker/price?symbol=DOTUSDT'),
       ]);
   
-      const [btcData, ethData, bnbData, xrpData, adaData, ltcData] = await Promise.all([
+      const [btcData, ethData, bnbData, xrpData, adaData, ltcData, dogeData, dotData] = await Promise.all([
         btcResponse.json(),
         ethResponse.json(),
         bnbResponse.json(),
         xrpResponse.json(),
         adaResponse.json(),
-        ltcResponse.json()
+        ltcResponse.json(),
+        dogeResponse.json(),
+        dotResponse.json(),
       ]);
   
       const btcNewPrice = parseFloat(btcData.price).toFixed(2);
@@ -49,6 +57,8 @@ export function CoinsPriceProvider({ children }) {
       const xrpNewPrice = parseFloat(xrpData.price).toFixed(2);
       const adaNewPrice = parseFloat(adaData.price).toFixed(2);
       const ltcNewPrice = parseFloat(ltcData.price).toFixed(2);
+      const dogeNewPrice = parseFloat(dogeData.price).toFixed(2);
+      const dotNewPrice = parseFloat(dotData.price).toFixed(2);
   
       setBtcPreviousPrice(btcPrice);
       setBtcPrice(btcFormattedPrice);
@@ -67,6 +77,12 @@ export function CoinsPriceProvider({ children }) {
       
       setLtcPreviousPrice(ltcPrice);
       setLtcPrice(ltcNewPrice);
+
+      setDogePreviousPrice(dogePrice);
+      setDogePrice(dogeNewPrice);
+
+      setDotPreviousPrice(dotPrice);
+      setDotPrice(dotNewPrice);
   
     }, 5000);
   
@@ -81,7 +97,9 @@ export function CoinsPriceProvider({ children }) {
         bnbPrice,
         xrpPrice,
         adaPrice,
-        ltcPrice
+        ltcPrice,
+        dogePrice,
+        dotPrice
       }}
     >
       {children}

@@ -8,10 +8,12 @@ import bnb from './images/bnb.png'
 import ada from './images/ada.png'
 import xrp from './images/xrp.png'
 import ltc from './images/ltc.png'
+import doge from './images/doge.png'
+import dot from './images/dot.png'
 
-const coinImages = [btc, eth, bnb, ada, xrp, ltc];
+const coinImages = [btc, eth, bnb, ada, xrp, ltc, doge, dot];
 
-const coinNames = ['BTC', 'ETH', 'BNB', 'ADA', 'XRP', 'LTC'];
+const coinNames = ['BTC', 'ETH', 'BNB', 'ADA', 'XRP', 'LTC', 'DOGE', 'DOT'];
 
 function App() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -128,6 +130,32 @@ function App() {
               <td>
                 <h1 style={{ color: PriceChangeProvider.ltcPriceChange > 0 ? 'green' : 'red', textAlign: 'right' }}>
                   {PriceChangeProvider.ltcPriceChange > 0 ? '+' : ''}{(PriceChangeProvider.ltcPriceChange * 1).toFixed(2)}%
+                </h1>
+              </td>
+            </tr>
+            <tr>
+              <td style={{ width: '30%', verticalAlign: 'middle' }}>
+                <img src={doge} alt="DOGE" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
+                <h1 className='title'>DOGECOIN</h1>
+                <h1 className='subtitle'>DOGE</h1>
+              </td>
+              <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.dogePrice}</h1></td>
+              <td>
+                <h1 style={{ color: PriceChangeProvider.dogePriceChange > 0 ? 'green' : 'red', textAlign: 'right' }}>
+                  {PriceChangeProvider.dogePriceChange > 0 ? '+' : ''}{(PriceChangeProvider.dogePriceChange * 1).toFixed(2)}%
+                </h1>
+              </td>
+            </tr>
+            <tr>
+              <td style={{ width: '30%', verticalAlign: 'middle' }}>
+                <img src={dot} alt="DOT" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
+                <h1 className='title'>POLKADOT</h1>
+                <h1 className='subtitle'>DOT</h1>
+              </td>
+              <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.dotPrice}</h1></td>
+              <td>
+                <h1 style={{ color: PriceChangeProvider.dotPriceChange > 0 ? 'green' : 'red', textAlign: 'right' }}>
+                  {PriceChangeProvider.dotPriceChange > 0 ? '+' : ''}{(PriceChangeProvider.dotPriceChange * 1).toFixed(2)}%
                 </h1>
               </td>
             </tr>

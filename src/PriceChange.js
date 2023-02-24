@@ -7,6 +7,8 @@ const PriceChangeContext = createContext({
   adaPriceChange: 0,
   xrpPriceChange: 0,
   ltcPriceChange: 0,
+  dogePriceChange: 0,
+  dotPriceChange: 0,
 });
 
 const PriceChangeProvider = ({ children }) => {
@@ -16,9 +18,11 @@ const PriceChangeProvider = ({ children }) => {
   const [adaPriceChange, setAdaPriceChange] = useState(0);
   const [xrpPriceChange, setXrpPriceChange] = useState(0);
   const [ltcPriceChange, setLtcPriceChange] = useState(0);
+  const [dogePriceChange, setDogePriceChange] = useState(0);
+  const [dotPriceChange, setDotPriceChange] = useState(0);
 
   useEffect(() => {
-    const symbols = ["BTC", "ETH", "BNB", "ADA", "XRP", "LTC"];
+    const symbols = ["BTC", "ETH", "BNB", "ADA", "XRP", "LTC", "DOGE", "DOT"];
     const fetchData = async () => {
       const responses = await Promise.all(
         symbols.map((symbol) =>
@@ -34,6 +38,8 @@ const PriceChangeProvider = ({ children }) => {
       setAdaPriceChange(responses[3].priceChangePercent);
       setXrpPriceChange(responses[4].priceChangePercent);
       setLtcPriceChange(responses[5].priceChangePercent);
+      setDogePriceChange(responses[6].priceChangePercent);
+      setDotPriceChange(responses[7].priceChangePercent);
     };
     fetchData();
   }, []);
@@ -47,6 +53,8 @@ const PriceChangeProvider = ({ children }) => {
         adaPriceChange,
         xrpPriceChange,
         ltcPriceChange,
+        dogePriceChange,
+        dotPriceChange
       }}
     >
       {children}
