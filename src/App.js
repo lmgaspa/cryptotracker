@@ -94,19 +94,6 @@ function App() {
             </tr>
             <tr>
               <td style={{ width: '30%', verticalAlign: 'middle' }}>
-                <img src={ada} alt="ADA" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
-                <h1 className='title'>CARDANO</h1>
-                <h1 className='subtitle'>ADA</h1>
-              </td>
-              <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.adaPrice}</h1></td>
-              <td>
-                <h1 style={{ color: PriceChangeProvider.adaPriceChange > 0 ? 'green' : 'red', textAlign: 'right' }}>
-                  {PriceChangeProvider.adaPriceChange > 0 ? '+' : ''}{(PriceChangeProvider.adaPriceChange * 1).toFixed(2)}%
-                </h1>
-              </td>
-            </tr>
-            <tr>
-              <td style={{ width: '30%', verticalAlign: 'middle' }}>
                 <img src={xrp} alt="XRP" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
                 <h1 className='title'>XRP</h1>
                 <h1 className='subtitle'>XRP</h1>
@@ -115,6 +102,19 @@ function App() {
               <td>
                 <h1 style={{ color: PriceChangeProvider.xrpPriceChange > 0 ? 'green' : 'red', textAlign: 'right' }}>
                   {PriceChangeProvider.xrpPriceChange > 0 ? '+' : ''}{(PriceChangeProvider.xrpPriceChange * 1).toFixed(2)}%
+                </h1>
+              </td>
+            </tr>
+            <tr>
+              <td style={{ width: '30%', verticalAlign: 'middle' }}>
+                <img src={ada} alt="ADA" style={{ width: '30px', margin: 0, verticalAlign: 'middle' }} />
+                <h1 className='title'>CARDANO</h1>
+                <h1 className='subtitle'>ADA</h1>
+              </td>
+              <td><h1 style={{ textAlign: 'right' }}>${CoinsPriceProvider.adaPrice}</h1></td>
+              <td>
+                <h1 style={{ color: PriceChangeProvider.adaPriceChange > 0 ? 'green' : 'red', textAlign: 'right' }}>
+                  {PriceChangeProvider.adaPriceChange > 0 ? '+' : ''}{(PriceChangeProvider.adaPriceChange * 1).toFixed(2)}%
                 </h1>
               </td>
             </tr>

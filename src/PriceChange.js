@@ -18,20 +18,22 @@ const PriceChangeProvider = ({ children }) => {
   const [ltcPriceChange, setLtcPriceChange] = useState(0);
 
   useEffect(() => {
+    const symbols = ["BTC", "ETH", "BNB", "ADA", "XRP", "LTC"];
     const fetchData = async () => {
-      const fetchPriceChange = async (symbol) => {
-        const URL = `https://api.binance.com/api/v3/ticker/24hr?symbol=${symbol}USDT`;
-        const response = await fetch(URL);
-        const data = await response.json();
-        return data.priceChangePercent;
-      };
+      const responses = await Promise.all(
+        symbols.map((symbol) =>
+          fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${symbol}USDT`).then(
+            (response) => response.json()
+          )
+        )
+      );
 
-      setBtcPriceChange(await fetchPriceChange("BTC"));
-      setEthPriceChange(await fetchPriceChange("ETH"));
-      setBnbPriceChange(await fetchPriceChange("BNB"));
-      setAdaPriceChange(await fetchPriceChange("ADA"));
-      setXrpPriceChange(await fetchPriceChange("XRP"));
-      setLtcPriceChange(await fetchPriceChange("LTC")); 
+      setBtcPriceChange(responses[0].priceChangePercent);
+      setEthPriceChange(responses[1].priceChangePercent);
+      setBnbPriceChange(responses[2].priceChangePercent);
+      setAdaPriceChange(responses[3].priceChangePercent);
+      setXrpPriceChange(responses[4].priceChangePercent);
+      setLtcPriceChange(responses[5].priceChangePercent);
     };
     fetchData();
   }, []);
